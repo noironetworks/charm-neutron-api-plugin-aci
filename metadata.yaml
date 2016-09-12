@@ -1,0 +1,17 @@
+name: aci
+summary: Group Based Policy/Cisco ACI
+maintainer: Ratnakar Kolli <rkolli@noironetworks.com>
+description: |
+  This charm provides Group Based Policy (GBP) service plugin.
+  This configures the neutron api service to work with Cisco ACI.
+categories:
+  - openstack
+subordinate: true
+provides:
+  neutron-plugin-api-subordinate:
+    interface: neutron-plugin-api-subordinate
+    scope: container
+requires:
+  neutron-api:
+    interface: juju-info
+    scope: container
