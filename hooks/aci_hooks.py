@@ -1,11 +1,7 @@
 #!/usr/bin/env python
 
+
 import sys
-import subprocess
-import jinja2
-import json
-import tempfile
-import yaml
 
 from charmhelpers.core.hookenv import (
     Hooks,
@@ -13,6 +9,7 @@ from charmhelpers.core.hookenv import (
     config,
     log,
     relation_set,
+    relation_get,
     relation_ids,
 )
 

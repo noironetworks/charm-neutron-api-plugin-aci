@@ -9,7 +9,7 @@ Usage
 
 Neutron API is a prerequisite service to deploy.
 
-    juju deploy aci
+    juju deploy neutron-api-plugin-aci
     juju add-relation aci neutron-api
 
 Configuration

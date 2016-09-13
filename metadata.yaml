@@ -1,4 +1,4 @@
-name: aci
+name: neutron-api-plugin-aci
 summary: Group Based Policy/Cisco ACI
 maintainer: Ratnakar Kolli <rkolli@noironetworks.com>
 description: |
