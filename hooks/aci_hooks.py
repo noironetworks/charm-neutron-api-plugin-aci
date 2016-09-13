@@ -37,7 +37,10 @@ def _build_settings():
     settings['use_gbp'] = cnf['use-gbp']
     if settings['use_gbp']:
         settings['service_plugins'] = 'apic_gbp_l3,group_policy,servicechain'
-        settings['mechanism_drivers'] = 'apic_gbp'
+        if cnf['use-opflex']:
+            settings['mechanism_drivers'] = 'apic_gbp'
+        else:
+            settings['mechanism_drivers'] = 'openvswitch,apic_gbp'
     else:
         settings['service_plugins'] = 'cisco_apic_l3'
         settings['mechanism_drivers'] = 'cisco_apic_ml2'
