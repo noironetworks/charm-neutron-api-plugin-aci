@@ -7,10 +7,6 @@ options:
     type: string
     default:
     description: "Repo key, if missing no package authentication will be performed"
-  neutron-plugin:
-    type: string
-    default: aci
-    description: "Neutron plugin to configure, valid values are apic_gbp or apic_ml2"
   use-gbp:
     type: boolean
     default: True
