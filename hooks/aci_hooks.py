@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 
+import subprocess
 import sys
 
 from charmhelpers.core.hookenv import (
@@ -11,6 +12,8 @@ from charmhelpers.core.hookenv import (
     relation_set,
     relation_get,
     relation_ids,
+    is_relation_made,
+    is_leader,
 )
 
 from charmhelpers.core.host import (
@@ -20,11 +23,19 @@ from charmhelpers.core.host import (
 
 from charmhelpers import fetch
 
+NEUTRON_CONF_DIR = "/etc/neutron"
+
+NEUTRON_CONF = '%s/neutron.conf' % NEUTRON_CONF_DIR
+
 hooks = Hooks()
 
-@hooks.hook('config-changed')
-def apic_config_changed(relation_id=None):
-    pass
+def _neutron_apic_ml2_db_manage():
+    log("Migrating the neutron database for ACI")
+    cmd = ['apic-ml2-db-manage',
+           '--config-file', NEUTRON_CONF,
+           'upgrade',
+           'head']
+    subprocess.check_output(cmd)
 
 def _build_settings():
     cnf = config()
@@ -70,15 +81,9 @@ def _build_settings():
 
     return settings
 
-@hooks.hook("neutron-plugin-api-subordinate-relation-joined")
-@hooks.hook("neutron-plugin-api-subordinate-relation-changed")
-def neutron_plugin_api_subordinate_joined():
-    cnf = config()
-    relation_set(relation_settings=_build_settings())
+def _aci_install(relation_id=None):
+    log("Installing ACI packages")
 
-@hooks.hook()
-@hooks.hook('install')
-def apic_install(relation_id=None):
     pkgs = ['python-apicapi', 'neutron-ml2-driver-apic', 'group-based-policy',
             'python-group-based-policy-client', 'neutron-opflex-agent']
     opt = ['--option=Dpkg::Options::=--force-confdef' ,'--option=Dpkg::Options::=--force-confold']
@@ -97,6 +102,42 @@ def apic_install(relation_id=None):
     for pkg in pkgs:
        fetch.apt_install(pkg, options=opt, fatal=True)
     
+def _aci_config(rid=None):
+    log("Configuring ACI")
+
+    cnf = config()
+    relation_set(relation_settings=_build_settings(), relation_id=rid)
+
+@hooks.hook('update-status')
+def update_status():
+    log("Updating status")
+
+@hooks.hook('config-changed')
+def config_changed():
+    for r_id in relation_ids('neutron-plugin-api-subordinate'):
+        neutron_plugin_api_subordinate_joined(rid=r_id)
+
+@hooks.hook("neutron-plugin-api-subordinate-relation-joined")
+@hooks.hook("neutron-plugin-api-subordinate-relation-changed")
+def neutron_plugin_api_subordinate_joined(rid=None):
+    _aci_config(rid=rid)
+
+@hooks.hook("leader-elected")
+def leader_elected():
+    if is_leader():
+        log("This unit is the leader. Will migrate the database")
+        _neutron_apic_ml2_db_manage()
+
+@hooks.hook('upgrade-charm')    
+def upgrade_charm():
+    _aci_install()
+    config_changed()
+
+@hooks.hook()
+@hooks.hook('install')
+def aci_install(relation_id=None):
+    _aci_install()
+
 def main():
     try:
         hooks.execute(sys.argv)

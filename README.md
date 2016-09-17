@@ -7,7 +7,7 @@ This subordinate charm provides the Neutron API component which configure neutro
 Usage
 -----
 
-Neutron API is a prerequisite service to deploy.
+Neutron API is a prerequisite service to deploy. 'neutron-api' charm should be deployed with neutron-plugin option set to 'aci'
 
     juju deploy neutron-api-plugin-aci
     juju add-relation neutron-api-plugin-aci neutron-api
