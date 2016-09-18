@@ -37,6 +37,14 @@ def _neutron_apic_ml2_db_manage():
            'head']
     subprocess.check_output(cmd)
 
+def _neutron_gbp_db_manage():
+    log("Migrating the neutron database for GBP")
+    cmd = ['gbp-db-manage',
+           '--config-file', NEUTRON_CONF,
+           'upgrade',
+           'head']
+    subprocess.check_output(cmd)
+
 def _build_settings():
     cnf = config()
     settings = {}
@@ -86,6 +94,7 @@ def _aci_install(relation_id=None):
 
     pkgs = ['python-apicapi', 'neutron-ml2-driver-apic', 'group-based-policy',
             'python-group-based-policy-client', 'neutron-opflex-agent']
+    gbp_pkgs = ['group-based-policy', 'python-group-based-policy-client']
     opt = ['--option=Dpkg::Options::=--force-confdef' ,'--option=Dpkg::Options::=--force-confold']
 
     conf = config()
@@ -101,6 +110,10 @@ def _aci_install(relation_id=None):
 
     for pkg in pkgs:
        fetch.apt_install(pkg, options=opt, fatal=True)
+
+    if conf['use-gbp']:
+        for pkg in gbp_pkgs:
+            fetch.apt_install(pkg, options=opt, fatal=True)
     
 def _aci_config(rid=None):
     log("Configuring ACI")
@@ -127,6 +140,9 @@ def leader_elected():
     if is_leader():
         log("This unit is the leader. Will migrate the database")
         _neutron_apic_ml2_db_manage()
+        cnf = config()
+        if cnf['use-gbp']:
+            _neutron_gbp_db_manage()
 
 @hooks.hook('upgrade-charm')    
 def upgrade_charm():
