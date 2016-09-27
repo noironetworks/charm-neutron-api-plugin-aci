@@ -90,12 +90,33 @@ apic-connection-json
 
      Describes nova-compute connections to ACI leaf in JSON format. Example {'101': ['host1.domain:1/1', 'host2.domain:1/2'], '102':['host3.domain:1/4']}. 101 is the switch id, host1.domain is connected to port 1/1 
 
+apic-vpc-pairs
+
+     (string)
+     
+     If using VPC to connect the nodes to ACI leaf switches, specify the switch id pairs for vpc. Example, if switch ids 101 and 102 form a vpc pair and switch ids 103, 104 form a vpc pair, then set the value to '101:102,103:104'
+
 apic-l3out
 
      (string)
 
      comma separated string representing external network name and associated epg. Example 'ext1:ext1epg, ext2:ext2epg'
 
+Deployment
+----------
+For this plugin deployment, the dependent charms need to have the following configuration
+
+neutron-api charm
+
+    neutron-plugin value should be 'aci', neutron-security-groups value should be set to 'true'
+
+neutron-gateway
+    
+    plugin value should be 'aci', data-port needs to be set to port connected to ACI leaf, example 'br-data:eth2'
+
+neutron-openvswitch
+   
+    data-port should be set to port connected to ACI leaf
 Contact Information
 -------------------
 

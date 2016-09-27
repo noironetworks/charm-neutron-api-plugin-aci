@@ -43,6 +43,10 @@ options:
     type: string
     default:
     description: "Describe nova-compute connections to ACI leaf in JSON format. Example {'101': ['host1.domain:1/1', 'host2.domain:1/2'], '102':['host3.domain:1/4']}. 101 is the switch id, host1.domain is connected to port 1/1 "
+  apic-vpc-pairs:
+    type: string
+    default:
+    description: "If using VPC to connect the nodes to ACI leaf switches, specify the switch id pairs for vpc. Example, if switch ids 101 and 102 form a vpc pair and switch ids 103, 104 form a vpc pair, then set the value to '101:102,103:104'"
   apic-l3out:
     type: string
     default: 

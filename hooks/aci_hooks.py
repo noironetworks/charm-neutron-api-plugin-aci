@@ -85,6 +85,7 @@ def _build_settings():
  
     #settings['apic_connection_json'] = yaml.safe_load(cnf['apic-connection-json'].replace("'", "\""))
     settings['apic_connection_json'] = cnf['apic-connection-json']
+    settings['apic_vpc_pairs'] = cnf['apic-vpc-pairs']
     settings['apic_l3out'] = cnf['apic-l3out']
 
     return settings
