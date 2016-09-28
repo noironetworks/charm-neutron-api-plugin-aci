@@ -42,6 +42,14 @@ use-opflex
 
      False
 
+enable-sriov
+
+     (boolean)
+
+     If true, enable sriov vnic switch as mechanism driver.
+
+     True
+
 aci-encap
 
      (string)

@@ -15,6 +15,10 @@ options:
     type: boolean
     default: False
     description: "Use opflex protocol, if true apic_encap can be either vlan or vxlan. If false, then vlan is the only option"
+  enable-sriov:
+    type: boolean
+    default: True
+    description: "Enable SRIOV"
   aci-encap:
     type: string
     default: vlan

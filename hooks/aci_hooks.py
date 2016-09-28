@@ -56,7 +56,10 @@ def _build_settings():
         if cnf['use-opflex']:
             settings['mechanism_drivers'] = 'apic_gbp'
         else:
-            settings['mechanism_drivers'] = 'openvswitch,apic_gbp'
+            if cnf['enable-sriov']:
+                settings['mechanism_drivers'] = 'openvswitch,apic_gbp,sriovnicswitch'
+            else:
+                settings['mechanism_drivers'] = 'openvswitch,apic_gbp'
     else:
         settings['service_plugins'] = 'cisco_apic_l3'
         settings['mechanism_drivers'] = 'cisco_apic_ml2'
