@@ -57,7 +57,7 @@ def _build_settings():
             settings['mechanism_drivers'] = 'apic_gbp'
         else:
             if cnf['enable-sriov']:
-                settings['mechanism_drivers'] = 'openvswitch,apic_gbp,sriovnicswitch'
+                settings['mechanism_drivers'] = 'openvswitch,sriovnicswitch,apic_gbp'
             else:
                 settings['mechanism_drivers'] = 'openvswitch,apic_gbp'
     else:
