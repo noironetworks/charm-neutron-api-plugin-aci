@@ -90,6 +90,7 @@ def _build_settings():
     settings['apic_connection_json'] = cnf['apic-connection-json']
     settings['apic_vpc_pairs'] = cnf['apic-vpc-pairs']
     settings['apic_l3out'] = cnf['apic-l3out']
+    settings['apic_create_auto_ptg'] = cnf['apic-auto-ptg']
 
     return settings
 
