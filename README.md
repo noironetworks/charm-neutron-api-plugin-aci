@@ -110,6 +110,16 @@ apic-l3out
 
      comma separated string representing external network name and associated epg. Example 'ext1:ext1epg, ext2:ext2epg'
 
+apic-reuse-bd
+
+     (boolean)
+  
+     If True, enable reuse of bridge domain
+
+     False
+
+
+
 Deployment
 ----------
 For this plugin deployment, the dependent charms need to have the following configuration

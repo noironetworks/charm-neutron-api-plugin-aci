@@ -91,6 +91,7 @@ def _build_settings():
     settings['apic_vpc_pairs'] = cnf['apic-vpc-pairs']
     settings['apic_l3out'] = cnf['apic-l3out']
     settings['apic_create_auto_ptg'] = cnf['apic-auto-ptg']
+    settings['apic_reuse_bd'] = cnf['apic-reuse-bd']
 
     return settings
 
