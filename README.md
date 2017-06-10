@@ -26,37 +26,21 @@ aci-repo-key
 
      GPG key for aci-repo. If not specified, packages will be installed with out authentication
 
-use-gbp
-
-     (boolean)
-
-     If true, configures aci plugin to use Group Based Policy, else configures plugin for ML2
-
-     True
-
-use-opflex
-
-     (boolean)
-
-     If true, sets up the environment to use Opflex, the aci encap can be Vlan or Vxlan. When not using Opflex, aci encap value is ignored and set to Vlan
-
-     False
-
-enable-sriov
-
-     (boolean)
-
-     If true, enable sriov vnic switch as mechanism driver.
-
-     True
-
 aci-encap
 
      (string)
 
-     Options are 'vlan' or 'vxlan'. When 'use-opflex' is set to False, this value is ignored and encap is forced to vlan.
+     Options are 'vlan' or 'vxlan'. 
 
      (vlan)
+
+aci-vlan-ranges
+
+     (string)
+
+     Vlan range to be used. Format <starting_vlan>:<ending_vlan>. Ignored if aci-encap is vxlan. Should match vlan-ranges option of neutron-gateway
+
+     (1000:1010)
 
 apic-hosts
 
@@ -78,19 +62,19 @@ apic-password
 
      password for ACI user
 
-use-vmm
+aci-apic-system-id
 
      (string)
 
-     If true, api creates a openstack vmm domain, if false it uses domain specified by apic-domain-name
+     Id string for this openstack instance
 
-     True
+     openstack
 
-apic-domain-name
-
+aci-apic-entity-profile:
+     
      (string)
-
-     Name of aci domain for this openstack instance
+    
+     ACI Attached Entity Profile that is configured on fabric
 
 apic-connection-json
 
@@ -103,20 +87,6 @@ apic-vpc-pairs
      (string)
      
      If using VPC to connect the nodes to ACI leaf switches, specify the switch id pairs for vpc. Example, if switch ids 101 and 102 form a vpc pair and switch ids 103, 104 form a vpc pair, then set the value to '101:102,103:104'
-
-apic-l3out
-
-     (string)
-
-     comma separated string representing external network name and associated epg. Example 'ext1:ext1epg, ext2:ext2epg'
-
-apic-reuse-bd
-
-     (boolean)
-  
-     If True, enable reuse of bridge domain
-
-     False
 
 
 

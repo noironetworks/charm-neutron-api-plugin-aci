@@ -7,59 +7,59 @@ options:
     type: string
     default:
     description: "Repo key, if missing no package authentication will be performed"
-  use-gbp:
-    type: boolean
-    default: True
-    description: "Setting to True, configures Group Based Policy. If false, it is ML2"
-  use-opflex:
-    type: boolean
-    default: False
-    description: "Use opflex protocol, if true apic_encap can be either vlan or vxlan. If false, then vlan is the only option"
-  enable-sriov:
-    type: boolean
-    default: True
-    description: "Enable SRIOV"
-  aci-encap:
-    type: string
-    default: vlan
-    description: "vlan or vxlan, for vxlan, use_opflex should be true"
-  apic-hosts:
+  aci-apic-hosts:
     type: string
     default: 1.1.1.1
     description: "comma separated string of apic hostnames or ip addresses"
-  apic-username:
+  aci-apic-username:
     type: string
     default: admin
     description: "APIC username"
-  apic-password:
-    type: string
-    default: 
-    description: "APIC password"
-  use-vmm:
-    type: boolean
-    default: True
-    description: "If true, api creates a openstack vmm domain, if false it uses domain specified by apic-domain-name"
-  apic-domain-name:
+  aci-apic-password:
     type: string
     default:
-    description: "Name of physical/vmm domain in APIC"
-  apic-connection-json:
+    description: "APIC password"
+  aci-apic-system-id:
+    type: string
+    default: 'openstack'
+    description: "As id string for this openstack instance"
+  aci-apic-entity-profile:
+    type: string
+    default:
+    description: "ACI Attached Entity Profile that is configured on fabric, where the nodes are connected"
+  aci-encap:
+    type: string
+    default: vxlan
+    description: "vlan or vxlan"
+  aci-vlan-ranges:
+    type: string
+    default: 1000:1010
+    description: "Vlan range to use when aci_encap for vmm domain in of type vlan"
+  aci-connection-json:
     type: string
     default:
     description: "Describe nova-compute connections to ACI leaf in JSON format. Example {'101': ['host1.domain:1/1', 'host2.domain:1/2'], '102':['host3.domain:1/4']}. 101 is the switch id, host1.domain is connected to port 1/1 "
-  apic-vpc-pairs:
+  aci-vpc-pairs:
     type: string
     default:
     description: "If using VPC to connect the nodes to ACI leaf switches, specify the switch id pairs for vpc. Example, if switch ids 101 and 102 form a vpc pair and switch ids 103, 104 form a vpc pair, then set the value to '101:102,103:104'"
-  apic-l3out:
+  aci-enable-optimized-metadata:
+    type: boolean
+    default: True
+    description: "enable optimized metadata"
+  rabbit-user:
+    default: neutron
     type: string
-    default: 
-    description: "comma separated string representing ext. network name and associated epg. Example 'ext1:ext1epg, ext2:ext2epg' "
-  apic-auto-ptg:
-    type: boolean
-    default: false
-    description: "Auto create a PTG"
-  apic-reuse-bd:
-    type: boolean
-    default: false
-    description: "Reuse a Brdige Domain"
+    description: Username used to access RabbitMQ queue
+  rabbit-vhost:
+    default: openstack
+    type: string
+    description: RabbitMQ vhost
+  database-user:
+    default: neutron
+    type: string
+    description: Username for Neutron database access (if enabled)
+  database:
+    default: neutron
+    type: string
+    description: Database name for Neutron (if enabled)

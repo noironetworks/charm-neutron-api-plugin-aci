@@ -15,3 +15,7 @@ requires:
   neutron-api:
     interface: juju-info
     scope: container
+  amqp:
+    interface: rabbitmq
+  shared-db:
+    interface: mysql-shared
