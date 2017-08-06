@@ -167,7 +167,7 @@ def _build_settings():
     settings['tenant_network_types'] = 'opflex'
     settings['mechanism_drivers'] = 'apic_aim'
     settings['ml2_extension_drivers'] = 'apic_aim,port_security'
-    settings['service_plugins'] = 'group_policy,servicechain,apic_aim_l3'
+    settings['service_plugins'] = 'group_policy,ncp,apic_aim_l3'
     settings['apic_aim_auth_plugin'] = 'v3password'
     settings['group_policy_policy_drivers'] = 'aim_mapping'
     settings['group_policy_extension_drivers'] = 'aim_extension,proxy_group,apic_allowed_vm_name,apic_segmentation_label'
