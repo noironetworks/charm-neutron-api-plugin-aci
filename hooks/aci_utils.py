@@ -9,7 +9,6 @@ import pdb
 
 ACI_PACKAGES = [
    'python-apicapi',
-   'neutron-ml2-driver-apic',
    'group-based-policy',
    'python-group-based-policy-client',
    'neutron-opflex-agent',
@@ -150,9 +149,9 @@ CONFIGS = register_configs()
 def aci_db_setup():
     if (('amqp' in CONFIGS.complete_contexts()) and ('shared-db' in CONFIGS.complete_contexts())):
         if is_leader():
-            _neutron_apic_ml2_db_manage()
-            _neutron_gbp_db_manage()
+            #_neutron_apic_ml2_db_manage()
             _aim_db_migrate()
+            _neutron_gbp_db_manage()
 
 def _build_settings():
     cnf = config()
