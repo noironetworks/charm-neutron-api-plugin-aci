@@ -162,14 +162,17 @@ def _build_settings():
             settings[k.replace('-', '_')] = v
     
     settings['neutron_plugin'] = 'aci'
-    settings['type_drivers'] = 'opflex,local,vlan,vxlan,flat,gre'
-    settings['tenant_network_types'] = 'opflex'
-    settings['mechanism_drivers'] = 'apic_aim'
-    settings['ml2_extension_drivers'] = 'apic_aim,port_security'
-    settings['service_plugins'] = 'group_policy,ncp,apic_aim_l3'
+    settings['type_drivers'] = cnf['aci-ml2-type-drivers']
+    settings['tenant_network_types'] = cnf['aci-tenant-network-types']
+    settings['mechanism_drivers'] = cnf['aci-mechanism-drivers']
+    settings['ml2_extension_drivers'] = cnf['aci-ml2-extension-drivers']
+    settings['service_plugins'] = cnf['aci-neutron-service-plugins']
     settings['apic_aim_auth_plugin'] = 'v3password'
-    settings['group_policy_policy_drivers'] = 'aim_mapping'
-    settings['group_policy_extension_drivers'] = 'aim_extension,proxy_group,apic_allowed_vm_name,apic_segmentation_label'
+    settings['group_policy_policy_drivers'] = cnf['aci-group-policy-policy-drivers']
+    settings['group_policy_extension_drivers'] = cnf['aci-group-policy-extension-drivers']
+
+    if 'neutron-vlan-ranges' in cnf.keys():
+       settings['neutron_vlan_ranges'] = cnf['neutron-vlan-ranges']
 
     return settings
 

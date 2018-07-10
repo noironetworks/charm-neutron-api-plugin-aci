@@ -17,7 +17,7 @@ options:
     description: "APIC username"
   aci-apic-password:
     type: string
-    default:
+    default: password
     description: "APIC password"
   aci-apic-system-id:
     type: string
@@ -25,7 +25,7 @@ options:
     description: "As id string for this openstack instance"
   aci-apic-entity-profile:
     type: string
-    default:
+    default: 'openstack'
     description: "ACI Attached Entity Profile that is configured on fabric, where the nodes are connected"
   aci-encap:
     type: string
@@ -47,6 +47,50 @@ options:
     type: boolean
     default: True
     description: "enable optimized metadata"
+  aci-mechanism-drivers:
+    type: string
+    default: apic_aim
+    description:
+  aci-group-policy-policy-drivers:
+    type: string
+    default: aim_mapping
+    description:
+  aci-group-policy-extension-drivers:
+    type: string
+    default: aim_extension,proxy_group,apic_allowed_vm_name,apic_segmentation_label
+    description:
+  aci-ml2-type-drivers:
+    type: string
+    default: opflex,local,vlan,vxlan,flat,gre
+    description:
+  aci-ml2-extension-drivers:
+    type: string
+    default: apic_aim,port_security
+    description:
+  aci-tenant-network-types:
+    type: string
+    default: opflex
+    description:
+  aci-neutron-service-plugins:
+    type: string
+    default: group_policy,ncp,apic_aim_l3
+    description:
+  neutron-vlan-ranges:
+    type: string
+    default:
+    description: define neutron vlan ranges to use in case of hierarchical port binding scenario. The format is physnet0:1:100,physnet1:200:210
+  aci-physnet-host-mapping:
+    type: string
+    default:
+    description: "If using physnets and to map hosts to physnets use the following format. Example {'physnet0': 'host1,host2', 'physnet1':'host1'}."
+  aci-disable-vmdom:
+    type: boolean
+    default: False
+    description: By default a VM domain is created. In some cases user may want to disable the creation of the same.
+  aci-physdom-id:
+    type: string
+    default:
+    description: Set the value, when using physdom's instead of VMM domains. Suggested value is the value set for aci-apic-system-id
   rabbit-user:
     default: neutron
     type: string
