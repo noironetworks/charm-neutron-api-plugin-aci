@@ -2,6 +2,7 @@
 
 from charmhelpers.core.hookenv import config
 from charmhelpers.contrib.openstack import context, templating
+import yaml
 import pdb
 
 class AciAimConfigContext(context.OSContextGenerator):
@@ -33,7 +34,12 @@ class AciAimCtlConfigContext(context.OSContextGenerator):
            ctxt['aci_connection_json'] = cnf['aci-connection-json']
 
         if 'aci-physnet-host-mapping' in cnf.keys():
-           ctxt['aci_physnet_host_mapping_json'] = cnf['aci-physnet-host-mapping']
+           #sample input '{"physnet0": "host1:e1:e2,host2:e3", "physnet1":"host1:e4:e5:e6"}'
+           aphm = yaml.load(cnf['aci-physnet-host-mapping'])
+
+           ctxt['aci_physnet_host_mapping_dict'] = {}
+           for pnet in aphm.keys():
+              ctxt['aci_physnet_host_mapping_dict'][pnet] = ",".join([x.split(':')[0] for x in aphm[pnet].split(',')])
 
         if 'aci-physdom-id' in cnf.keys():
            ctxt['aci_physdom_id'] = cnf['aci-physdom-id']

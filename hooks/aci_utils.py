@@ -5,6 +5,7 @@ from copy import deepcopy
 import subprocess
 import sys
 from itertools import chain
+import yaml
 import pdb
 
 ACI_PACKAGES = [
@@ -126,6 +127,24 @@ def aim_create_infra():
     cmd = ['/usr/bin/aimctl', 'infra', 'create']
     subprocess.check_output(cmd)
 
+def aim_hostlink_network_label():
+    cnf = config()
+    #sample input '{"physnet0": "host1:e1:e2,host2:e3", "physnet1":"host1:e4:e5:e6"}'
+
+    if 'aci-physnet-host-mapping' in cnf.keys():
+       aphm = yaml.load(cnf['aci-physnet-host-mapping'])
+       for pnet in aphm.keys():
+          for hentry in aphm[pnet].split(','):
+             hentry_l = hentry.split(':')
+             host = hentry_l[0]
+             intf_list = hentry_l[1::]
+             for intf in intf_list:
+                d_cmd = ['/usr/bin/aimctl', 'manager',  'host-link-network-label-delete', host, pnet, intf]
+                c_cmd = ['/usr/bin/aimctl', 'manager',  'host-link-network-label-create', host, pnet, intf]
+                subprocess.check_output(d_cmd)
+                subprocess.check_output(c_cmd)
+    
+
 def _aim_db_migrate():
     log("Migrating ACI AIM database")
     cmd = ['/usr/bin/aimctl', 'db-migration',
@@ -143,6 +162,8 @@ def _aim_db_migrate():
     cmd = ['/usr/bin/aimctl','manager', 'load-domains',
            '--enforce']
     subprocess.check_output(cmd)
+
+    aim_hostlink_network_label()
 
 CONFIGS = register_configs()
 
