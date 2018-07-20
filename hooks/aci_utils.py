@@ -131,7 +131,7 @@ def aim_hostlink_network_label():
     cnf = config()
     #sample input '{"physnet0": "host1:e1:e2,host2:e3", "physnet1":"host1:e4:e5:e6"}'
 
-    if 'aci-physnet-host-mapping' in cnf.keys():
+    if 'aci-physnet-host-mapping' in cnf.keys() and cnf['aci-physnet-host-mapping']:
        aphm = yaml.load(cnf['aci-physnet-host-mapping'])
        for pnet in aphm.keys():
           for hentry in aphm[pnet].split(','):
