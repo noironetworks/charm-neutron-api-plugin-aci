@@ -56,14 +56,14 @@ def aci_install(relation_id=None):
 
     conf = config()
 
-    if 'aci-repo-key' in conf.keys():
-        fetch.add_source(conf['aci-repo'], key=conf['aci-repo-key'])
+    if config('aci-repo-key'):
+        fetch.add_source(config('aci-repo'), key=config('aci-repo-key'))
     else:
-        fetch.add_source(conf['aci-repo'])
+        fetch.add_source(config('aci-repo'))
         opt.append('--allow-unauthenticated')
 
     fetch.apt_update(fatal=True)
-    fetch.apt_upgrade(fatal=True)
+    fetch.apt_upgrade(fatal=True, options=opt)
 
     fetch.apt_install(ACI_PACKAGES, options=opt, fatal=True)
 
