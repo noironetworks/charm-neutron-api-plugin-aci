@@ -191,6 +191,7 @@ def _build_settings():
     settings['apic_aim_auth_plugin'] = 'v3password'
     settings['group_policy_policy_drivers'] = cnf['aci-group-policy-policy-drivers']
     settings['group_policy_extension_drivers'] = cnf['aci-group-policy-extension-drivers']
+    settings['aci_apic_system_id'] = cnf['aci-apic-system-id']
 
     if 'neutron-vlan-ranges' in cnf.keys():
        settings['neutron_vlan_ranges'] = cnf['neutron-vlan-ranges']
