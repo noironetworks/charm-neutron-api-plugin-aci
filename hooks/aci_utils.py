@@ -6,16 +6,6 @@ import subprocess
 import sys
 from itertools import chain
 import yaml
-import pdb
-
-ACI_PACKAGES = [
-   'python-apicapi',
-   'group-based-policy',
-   'python-group-based-policy-client',
-   'neutron-opflex-agent',
-   'aci-integration-module',
-   'acitoolkit',
-]
 
 from charmhelpers.core.hookenv import (
     Hooks,
@@ -47,6 +37,16 @@ from charmhelpers.contrib.openstack.utils import (
 
 from charmhelpers import fetch
 
+ACI_PACKAGES = [
+   'python-apicapi',
+   'group-based-policy',
+   'python-group-based-policy-client',
+   'neutron-opflex-agent',
+   'aci-integration-module',
+   'acitoolkit',
+]
+
+
 AIM_CONFIG = '/etc/aim/aim.conf'
 AIM_CTL_CONFIG = '/etc/aim/aimctl.conf'
 AIM_SERVICES = ['aim-aid','aim-event-service-rpc', 'aim-event-service-polling']
@@ -75,14 +75,6 @@ REQUIRED_INTERFACES = {
    'database': ['shared-db'],
 }
 
-def register_configs(release=None):
-    release = release or os_release('neutron-common')
-    configs = templating.OSConfigRenderer(templates_dir=TEMPLATES,
-                                          openstack_release=release)
-    for cfg, rscs in resource_map().items():
-        configs.register(cfg, rscs['contexts'])
-    return configs
-
 def resource_map(release=None):
     '''
     Dynamically generate a map of resources that will be managed for a single
@@ -91,6 +83,16 @@ def resource_map(release=None):
     resource_map = deepcopy(BASE_RESOURCE_MAP)
 
     return resource_map
+
+def register_configs(release=None):
+    release = release or os_release('neutron-common')
+    configs = templating.OSConfigRenderer(templates_dir=TEMPLATES,
+                                          openstack_release=release)
+    for cfg, rscs in resource_map().items():
+        configs.register(cfg, rscs['contexts'])
+    return configs
+
+CONFIGS = register_configs()
 
 def restart_map():
     '''
@@ -165,7 +167,6 @@ def _aim_db_migrate():
 
     aim_hostlink_network_label()
 
-CONFIGS = register_configs()
 
 def aci_db_setup():
     if (('amqp' in CONFIGS.complete_contexts()) and ('shared-db' in CONFIGS.complete_contexts())):
@@ -183,18 +184,18 @@ def _build_settings():
             settings[k.replace('-', '_')] = v
     
     settings['neutron_plugin'] = 'aci'
-    settings['type_drivers'] = cnf['aci-ml2-type-drivers']
-    settings['tenant_network_types'] = cnf['aci-tenant-network-types']
-    settings['mechanism_drivers'] = cnf['aci-mechanism-drivers']
-    settings['ml2_extension_drivers'] = cnf['aci-ml2-extension-drivers']
-    settings['service_plugins'] = cnf['aci-neutron-service-plugins']
+    settings['type_drivers'] = config('aci-ml2-type-drivers')
+    settings['tenant_network_types'] = config('aci-tenant-network-types')
+    settings['mechanism_drivers'] = config('aci-mechanism-drivers')
+    settings['ml2_extension_drivers'] = config('aci-ml2-extension-drivers')
+    settings['service_plugins'] = config('aci-neutron-service-plugins')
     settings['apic_aim_auth_plugin'] = 'v3password'
-    settings['group_policy_policy_drivers'] = cnf['aci-group-policy-policy-drivers']
-    settings['group_policy_extension_drivers'] = cnf['aci-group-policy-extension-drivers']
-    settings['aci_apic_system_id'] = cnf['aci-apic-system-id']
+    settings['group_policy_policy_drivers'] = config('aci-group-policy-policy-drivers')
+    settings['group_policy_extension_drivers'] = config('aci-group-policy-extension-drivers')
+    settings['aci_apic_system_id'] = config('aci-apic-system-id')
 
-    if 'neutron-vlan-ranges' in cnf.keys():
-       settings['neutron_vlan_ranges'] = cnf['neutron-vlan-ranges']
+    if config('neutron-vlan-ranges'):
+       settings['neutron_vlan_ranges'] = config('neutron-vlan-ranges')
 
     return settings
 

@@ -1,0 +1,7 @@
+time: 2019-05-09 18:02:40.368253Z
+tags: worker-0
+test: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimConfigContext.test_aim_config
+time: 2019-05-09 18:02:40.394690Z
+successful: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimConfigContext.test_aim_config [ multipart
+]
+tags: -worker-0

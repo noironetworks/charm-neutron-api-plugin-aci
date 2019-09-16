@@ -1,0 +1,30 @@
+time: 2019-05-09 22:28:37.404719Z
+tags: worker-0
+test: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_apicsystemid
+time: 2019-05-09 22:28:37.426895Z
+failure: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_apicsystemid [ multipart
+Content-Type: text/x-traceback;language=python,charset=utf8
+traceback
+320
+Traceback (most recent call last):
+  File "/home/noiro/upstream/xenial/charm-neutron-api-plugin-aci/unit_tests/test_neutron_api_plugin_aci_context.py", line 46, in test_apicsystemid
+    self.assertEqual(aim_context.AciAimCtlConfigContext()(),
+  File "hooks/aim_context.py", line 31, in __call__
+    ctxt['aci_connection_dict'] = json.loads(cnf['aci-connection-json'])
+  File "/usr/lib/python3.5/json/__init__.py", line 319, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.5/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.5/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+0
+]
+tags: -worker-0
+time: 2019-05-09 22:28:37.441332Z
+tags: worker-1
+test: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimConfigContext.test_aim_config
+time: 2019-05-09 22:28:37.464387Z
+successful: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimConfigContext.test_aim_config [ multipart
+]
+tags: -worker-1

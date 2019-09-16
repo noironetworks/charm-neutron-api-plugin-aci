@@ -1,0 +1,26 @@
+time: 2019-05-09 21:03:24.808867Z
+tags: worker-1
+test: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_apicsystemid
+time: 2019-05-09 21:03:24.832474Z
+failure: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_apicsystemid [ multipart
+Content-Type: text/x-traceback;language=python,charset=utf8
+traceback
+203
+Traceback (most recent call last):
+  File "/home/noiro/upstream/xenial/charm-neutron-api-plugin-aci/unit_tests/test_neutron_api_plugin_aci_context.py", line 46, in test_apicsystemid
+    self.assertEqual(aim_context.AciAimCtlConfigContext()(),
+  File "hooks/aim_context.py", line 32, in __call__
+    ctxt['aci_connection_dict'] = json.loads(cnf['aci-connection-json'])
+  File "/usr/lib/python3.5/json/__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+0
+]
+tags: -worker-1
+time: 2019-05-09 21:03:24.815563Z
+tags: worker-0
+test: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimConfigContext.test_aim_config
+time: 2019-05-09 21:03:24.838852Z
+successful: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimConfigContext.test_aim_config [ multipart
+]
+tags: -worker-0

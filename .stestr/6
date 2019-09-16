@@ -1,0 +1,42 @@
+time: 2019-05-09 22:35:21.719679Z
+tags: worker-0
+test: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimConfigContext.test_aim_config
+time: 2019-05-09 22:35:21.741902Z
+successful: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimConfigContext.test_aim_config [ multipart
+]
+tags: -worker-0
+time: 2019-05-09 22:35:21.758768Z
+tags: worker-1
+test: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_apicsystemid
+time: 2019-05-09 22:35:21.781934Z
+failure: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_apicsystemid [ multipart
+Content-Type: text/x-traceback;language=python,charset=utf8
+traceback
+446
+Traceback (most recent call last):
+  File "/home/noiro/upstream/xenial/charm-neutron-api-plugin-aci/unit_tests/test_neutron_api_plugin_aci_context.py", line 55, in test_apicsystemid
+    '{aci_physdom_id': ''})
+  File "/usr/lib/python3.5/unittest/case.py", line 820, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.5/unittest/case.py", line 1111, in assertDictEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.5/unittest/case.py", line 665, in fail
+    raise self.failureException(msg)
+AssertionError: {'aci[106 chars]'aci_disable_vmdom': False, 'aci_apic_system_i[41 chars]010'} != {'aci[106 chars]'aci_physnet_host_mapping_dict': {}, 'aci_disa[101 chars]: ''}
+  {'aci_apic_entity_profile': 'openstack',
+   'aci_apic_system_id': 'JuJu101',
+   'aci_connection_dict': {},
+   'aci_disable_vmdom': False,
+   'aci_encap': 'vxlan',
++  'aci_physnet_host_mapping_dict': {},
+   'aci_vlan_ranges': '1000:1010',
+-  'aci_vpc_pairs': ''}
+?                     ^
+
++  'aci_vpc_pairs': '',
+?                     ^
+
++  '{aci_physdom_id': ''}
+0
+]
+tags: -worker-1

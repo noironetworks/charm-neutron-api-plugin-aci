@@ -54,8 +54,6 @@ def aci_install(relation_id=None):
 
     opt = ['--option=Dpkg::Options::=--force-confdef' ,'--option=Dpkg::Options::=--force-confold']
 
-    conf = config()
-
     if config('aci-repo-key'):
         fetch.add_source(config('aci-repo'), key=config('aci-repo-key'))
     else:

@@ -1,0 +1,63 @@
+time: 2019-05-10 00:16:22.944032Z
+tags: worker-1
+test: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimConfigContext.test_aim_config
+time: 2019-05-10 00:16:22.974995Z
+successful: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimConfigContext.test_aim_config [ multipart
+]
+tags: -worker-1
+time: 2019-05-10 00:16:22.968076Z
+tags: worker-0
+test: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_connection_json
+time: 2019-05-10 00:16:23.000378Z
+successful: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_connection_json [ multipart
+]
+tags: -worker-0
+time: 2019-05-10 00:16:22.976503Z
+tags: worker-1
+test: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_apic_entity_profile
+time: 2019-05-10 00:16:23.003643Z
+successful: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_apic_entity_profile [ multipart
+]
+tags: -worker-1
+time: 2019-05-10 00:16:23.000820Z
+tags: worker-0
+test: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_disable_vmdom
+time: 2019-05-10 00:16:23.025921Z
+successful: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_disable_vmdom [ multipart
+]
+tags: -worker-0
+time: 2019-05-10 00:16:23.004584Z
+tags: worker-1
+test: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_encap
+time: 2019-05-10 00:16:23.029921Z
+successful: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_encap [ multipart
+]
+tags: -worker-1
+time: 2019-05-10 00:16:23.026312Z
+tags: worker-0
+test: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_physnet_host_mapping
+time: 2019-05-10 00:16:23.051910Z
+successful: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_physnet_host_mapping [ multipart
+]
+tags: -worker-0
+time: 2019-05-10 00:16:23.030696Z
+tags: worker-1
+test: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_vlan_ranges
+time: 2019-05-10 00:16:23.053661Z
+successful: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_vlan_ranges [ multipart
+]
+tags: -worker-1
+time: 2019-05-10 00:16:23.052306Z
+tags: worker-0
+test: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_vpc_pairs
+time: 2019-05-10 00:16:23.078827Z
+successful: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_vpc_pairs [ multipart
+]
+tags: -worker-0
+time: 2019-05-10 00:16:23.079176Z
+tags: worker-0
+test: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_apicsystemid
+time: 2019-05-10 00:16:23.100259Z
+successful: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_apicsystemid [ multipart
+]
+tags: -worker-0

@@ -1,0 +1,52 @@
+time: 2019-05-09 23:06:45.102280Z
+tags: worker-0
+test: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimConfigContext.test_aim_config
+time: 2019-05-09 23:06:45.126179Z
+successful: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimConfigContext.test_aim_config [ multipart
+]
+tags: -worker-0
+time: 2019-05-09 23:06:45.126368Z
+tags: worker-0
+test: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_encap
+time: 2019-05-09 23:06:45.148665Z
+successful: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_encap [ multipart
+]
+tags: -worker-0
+time: 2019-05-09 23:06:45.149502Z
+tags: worker-1
+test: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_vlan_ranges
+time: 2019-05-09 23:06:45.173440Z
+failure: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_vlan_ranges [ multipart
+Content-Type: text/x-traceback;language=python,charset=utf8
+traceback
+3ED
+Traceback (most recent call last):
+  File "/home/noiro/upstream/xenial/charm-neutron-api-plugin-aci/unit_tests/test_neutron_api_plugin_aci_context.py", line 75, in test_aci_vlan_ranges
+    'aci_connection_dict': {}})
+  File "/usr/lib/python3.5/unittest/case.py", line 820, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.5/unittest/case.py", line 1111, in assertDictEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.5/unittest/case.py", line 665, in fail
+    raise self.failureException(msg)
+AssertionError: {'aci[94 chars]': 'vxlan', 'aci_disable_vmdom': False, 'aci_a[55 chars]233'} != {'aci[94 chars]': 'vlan', 'aci_disable_vmdom': False, 'aci_ap[54 chars]233'}
+  {'aci_apic_entity_profile': 'openstack',
+   'aci_apic_system_id': 'openstack',
+   'aci_connection_dict': {},
+   'aci_disable_vmdom': False,
+-  'aci_encap': 'vxlan',
+?                 -
+
++  'aci_encap': 'vlan',
+   'aci_vlan_ranges': '2121:2233',
+   'aci_vpc_pairs': ''}
+0
+]
+tags: -worker-1
+time: 2019-05-09 23:06:45.176488Z
+tags: worker-1
+test: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_apicsystemid
+time: 2019-05-09 23:06:45.199029Z
+successful: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_apicsystemid [ multipart
+]
+tags: -worker-1

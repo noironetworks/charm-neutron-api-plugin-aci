@@ -1,0 +1,131 @@
+time: 2019-05-09 23:50:05.315556Z
+tags: worker-1
+test: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_apic_entity_profile
+time: 2019-05-09 23:50:05.339983Z
+failure: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_apic_entity_profile [ multipart
+Content-Type: text/x-traceback;language=python,charset=utf8
+traceback
+405
+Traceback (most recent call last):
+  File "/home/noiro/upstream/xenial/charm-neutron-api-plugin-aci/unit_tests/test_neutron_api_plugin_aci_context.py", line 97, in test_aci_apic_entity_profile
+    'aci_connection_dict': {}})
+  File "/usr/lib/python3.5/unittest/case.py", line 820, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.5/unittest/case.py", line 1111, in assertDictEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.5/unittest/case.py", line 665, in fail
+    raise self.failureException(msg)
+AssertionError: {'aci_vpc_pairs': '', 'aci_apic_entity_profile': 'OstackAep'[140 chars]010'} != {'aci_vpc_pairs': '101:102', 'aci_apic_entity_profile': 'Ost[147 chars]010'}
+  {'aci_apic_entity_profile': 'OstackAep',
+   'aci_apic_system_id': 'openstack',
+   'aci_connection_dict': {},
+   'aci_disable_vmdom': False,
+   'aci_encap': 'vxlan',
+   'aci_vlan_ranges': '1000:1010',
+-  'aci_vpc_pairs': ''}
++  'aci_vpc_pairs': '101:102'}
+?                    +++++++
+
+0
+]
+tags: -worker-1
+time: 2019-05-09 23:50:05.324865Z
+tags: worker-0
+test: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimConfigContext.test_aim_config
+time: 2019-05-09 23:50:05.348438Z
+successful: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimConfigContext.test_aim_config [ multipart
+]
+tags: -worker-0
+time: 2019-05-09 23:50:05.344285Z
+tags: worker-1
+test: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_connection_json
+time: 2019-05-09 23:50:05.367507Z
+failure: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_connection_json [ multipart
+Content-Type: text/x-traceback;language=python,charset=utf8
+traceback
+516
+Traceback (most recent call last):
+  File "/home/noiro/upstream/xenial/charm-neutron-api-plugin-aci/unit_tests/test_neutron_api_plugin_aci_context.py", line 120, in test_aci_connection_json
+    '102':["srv1:vpc-1-25/101-102-1-25", "srv2:vpc-1-26/101-102-1-26"]} })
+  File "/usr/lib/python3.5/unittest/case.py", line 820, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.5/unittest/case.py", line 1111, in assertDictEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.5/unittest/case.py", line 665, in fail
+    raise self.failureException(msg)
+AssertionError: {'aci_vpc_pairs': '', 'aci_apic_entity_profile': 'openstack'[276 chars]010'} != {'aci_vpc_pairs': '101:102', 'aci_apic_entity_profile': 'ope[283 chars]010'}
+  {'aci_apic_entity_profile': 'openstack',
+   'aci_apic_system_id': 'openstack',
+   'aci_connection_dict': {'101': ['srv1:vpc-1-25/101-102-1-25',
+                                   'srv2:vpc-1-26/101-102-1-26'],
+                           '102': ['srv1:vpc-1-25/101-102-1-25',
+                                   'srv2:vpc-1-26/101-102-1-26']},
+   'aci_disable_vmdom': False,
+   'aci_encap': 'vxlan',
+   'aci_vlan_ranges': '1000:1010',
+-  'aci_vpc_pairs': ''}
++  'aci_vpc_pairs': '101:102'}
+?                    +++++++
+
+0
+]
+tags: -worker-1
+time: 2019-05-09 23:50:05.348642Z
+tags: worker-0
+test: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_encap
+time: 2019-05-09 23:50:05.374162Z
+successful: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_encap [ multipart
+]
+tags: -worker-0
+time: 2019-05-09 23:50:05.370683Z
+tags: worker-1
+test: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_disable_vmdom
+time: 2019-05-09 23:50:05.392695Z
+failure: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_disable_vmdom [ multipart
+Content-Type: text/x-traceback;language=python,charset=utf8
+traceback
+3FF
+Traceback (most recent call last):
+  File "/home/noiro/upstream/xenial/charm-neutron-api-plugin-aci/unit_tests/test_neutron_api_plugin_aci_context.py", line 108, in test_aci_disable_vmdom
+    'aci_connection_dict': {}})
+  File "/usr/lib/python3.5/unittest/case.py", line 820, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.5/unittest/case.py", line 1111, in assertDictEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.5/unittest/case.py", line 665, in fail
+    raise self.failureException(msg)
+AssertionError: {'aci_vpc_pairs': '', 'aci_apic_entity_profile': 'openstack'[139 chars]010'} != {'aci_vpc_pairs': '101:102', 'aci_apic_entity_profile': 'ope[146 chars]010'}
+  {'aci_apic_entity_profile': 'openstack',
+   'aci_apic_system_id': 'openstack',
+   'aci_connection_dict': {},
+   'aci_disable_vmdom': True,
+   'aci_encap': 'vxlan',
+   'aci_vlan_ranges': '1000:1010',
+-  'aci_vpc_pairs': ''}
++  'aci_vpc_pairs': '101:102'}
+?                    +++++++
+
+0
+]
+tags: -worker-1
+time: 2019-05-09 23:50:05.374296Z
+tags: worker-0
+test: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_vlan_ranges
+time: 2019-05-09 23:50:05.396329Z
+successful: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_vlan_ranges [ multipart
+]
+tags: -worker-0
+time: 2019-05-09 23:50:05.395859Z
+tags: worker-1
+test: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_apicsystemid
+time: 2019-05-09 23:50:05.417993Z
+successful: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_apicsystemid [ multipart
+]
+tags: -worker-1
+time: 2019-05-09 23:50:05.396464Z
+tags: worker-0
+test: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_vpc_pairs
+time: 2019-05-09 23:50:05.422097Z
+successful: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_vpc_pairs [ multipart
+]
+tags: -worker-0

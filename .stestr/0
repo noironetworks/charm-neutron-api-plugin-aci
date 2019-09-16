@@ -1,0 +1,15 @@
+time: 2019-05-09 18:00:37.226474Z
+tags: worker-0
+test: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimConfigContext.test_aim_config
+time: 2019-05-09 18:00:37.226702Z
+failure: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimConfigContext.test_aim_config [ multipart
+Content-Type: text/x-traceback;language=python,charset=utf8
+traceback
+121
+Traceback (most recent call last):
+  File "/home/noiro/upstream/xenial/charm-neutron-api-plugin-aci/unit_tests/test_neutron_api_plugin_aci_context.py", line 42, in setUp
+    super(TestAciAimConfigContext, self).setUp(aci_opflex_context,
+NameError: name 'aci_opflex_context' is not defined
+0
+]
+tags: -worker-0

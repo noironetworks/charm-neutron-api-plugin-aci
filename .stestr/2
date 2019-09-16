@@ -1,0 +1,22 @@
+time: 2019-05-09 21:03:00.156036Z
+tags: worker-0
+test: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimConfigContext.test_aim_config
+time: 2019-05-09 21:03:00.182667Z
+successful: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimConfigContext.test_aim_config [ multipart
+]
+tags: -worker-0
+time: 2019-05-09 21:03:00.182896Z
+tags: worker-0
+test: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_apicsystemid
+time: 2019-05-09 21:03:00.208394Z
+failure: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_apicsystemid [ multipart
+Content-Type: text/x-traceback;language=python,charset=utf8
+traceback
+144
+Traceback (most recent call last):
+  File "/home/noiro/upstream/xenial/charm-neutron-api-plugin-aci/unit_tests/test_neutron_api_plugin_aci_context.py", line 46, in test_apicsystemid
+    self.assetEqual(aim_context.AciAimCtlConfigContext()(),
+AttributeError: 'TestAciAimCtlConfigContext' object has no attribute 'assetEqual'
+0
+]
+tags: -worker-0

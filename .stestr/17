@@ -1,0 +1,70 @@
+time: 2019-05-10 00:21:27.874798Z
+tags: worker-0
+test: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_connection_json
+time: 2019-05-10 00:21:27.898090Z
+successful: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_connection_json [ multipart
+]
+tags: -worker-0
+time: 2019-05-10 00:21:27.898263Z
+tags: worker-0
+test: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_encap
+time: 2019-05-10 00:21:27.919483Z
+successful: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_encap [ multipart
+]
+tags: -worker-0
+time: 2019-05-10 00:21:27.919614Z
+tags: worker-0
+test: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_physdom_id
+time: 2019-05-10 00:21:27.940760Z
+successful: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_physdom_id [ multipart
+]
+tags: -worker-0
+time: 2019-05-10 00:21:27.940900Z
+tags: worker-0
+test: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_vlan_ranges
+time: 2019-05-10 00:21:27.962187Z
+successful: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_vlan_ranges [ multipart
+]
+tags: -worker-0
+time: 2019-05-10 00:21:27.934845Z
+tags: worker-1
+test: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimConfigContext.test_aim_config
+time: 2019-05-10 00:21:27.968255Z
+successful: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimConfigContext.test_aim_config [ multipart
+]
+tags: -worker-1
+time: 2019-05-10 00:21:27.962318Z
+tags: worker-0
+test: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_vpc_pairs
+time: 2019-05-10 00:21:27.983324Z
+successful: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_vpc_pairs [ multipart
+]
+tags: -worker-0
+time: 2019-05-10 00:21:27.969044Z
+tags: worker-1
+test: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_apic_entity_profile
+time: 2019-05-10 00:21:27.997017Z
+successful: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_apic_entity_profile [ multipart
+]
+tags: -worker-1
+time: 2019-05-10 00:21:27.983455Z
+tags: worker-0
+test: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_apicsystemid
+time: 2019-05-10 00:21:28.004670Z
+successful: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_apicsystemid [ multipart
+]
+tags: -worker-0
+time: 2019-05-10 00:21:27.997747Z
+tags: worker-1
+test: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_disable_vmdom
+time: 2019-05-10 00:21:28.027756Z
+successful: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_disable_vmdom [ multipart
+]
+tags: -worker-1
+time: 2019-05-10 00:21:28.028505Z
+tags: worker-1
+test: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_physnet_host_mapping
+time: 2019-05-10 00:21:28.055581Z
+successful: unit_tests.test_neutron_api_plugin_aci_context.TestAciAimCtlConfigContext.test_aci_physnet_host_mapping [ multipart
+]
+tags: -worker-1
