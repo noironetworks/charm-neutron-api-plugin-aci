@@ -52,18 +52,12 @@ CONFIGS = register_configs()
 def aci_install(relation_id=None):
     log("Installing ACI packages")
 
-    opt = ['--option=Dpkg::Options::=--force-confdef' ,'--option=Dpkg::Options::=--force-confold']
-
-    if config('aci-repo-key'):
-        fetch.add_source(config('aci-repo'), key=config('aci-repo-key'))
-    else:
-        fetch.add_source(config('aci-repo'))
-        opt.append('--allow-unauthenticated')
+    fetch.add_source(config('aci-repo'), key=config('aci-repo-key'))
 
     fetch.apt_update(fatal=True)
-    fetch.apt_upgrade(fatal=True, options=opt)
+    fetch.apt_upgrade(fatal=True)
 
-    fetch.apt_install(ACI_PACKAGES, options=opt, fatal=True)
+    fetch.apt_install(ACI_PACKAGES, fatal=True)
 
 @hooks.hook('update-status')
 def update_status():
