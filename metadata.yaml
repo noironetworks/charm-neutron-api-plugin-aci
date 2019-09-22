@@ -6,6 +6,9 @@ description: |
   This configures the neutron api service to work with Cisco ACI.
 categories:
   - openstack
+series:
+  - xenial
+  - bionic
 subordinate: true
 provides:
   neutron-plugin-api-subordinate:
