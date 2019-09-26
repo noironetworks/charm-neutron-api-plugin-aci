@@ -106,6 +106,9 @@ def amqp_changed():
         return
     CONFIGS.write_all()
     aci_db_setup()
+    service_restart('aim-event-service-polling')
+    service_restart('aim-aid')
+    service_restart('aim-event-service-rpc')
 
 @hooks.hook('shared-db-relation-joined')
 def shared_db_joined(relation_id=None):
@@ -130,6 +133,9 @@ def shared_db_changed():
         return
     CONFIGS.write_all()
     aci_db_setup()
+    service_restart('aim-event-service-polling')
+    service_restart('aim-aid')
+    service_restart('aim-event-service-rpc')
 
 #@hooks.hook("leader-elected")
 #def leader_elected():
