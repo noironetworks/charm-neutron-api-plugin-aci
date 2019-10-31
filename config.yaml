@@ -52,6 +52,10 @@ options:
     type: boolean
     default: True
     description: "enable optimized metadata"
+  aci-default-opflex-physnet:
+    type: string
+    default: physnet1
+    description: "Default physnet for opflex type networks"
   aci-mechanism-drivers:
     type: string
     default: apic_aim
