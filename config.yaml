@@ -56,6 +56,10 @@ options:
     type: string
     default: physnet1
     description: "Default physnet for opflex type networks"
+  aci-enable-sfc:
+    type: boolean
+    default: False
+    description: "Enable neutron sfc extensions"
   aci-mechanism-drivers:
     type: string
     default: apic_aim
