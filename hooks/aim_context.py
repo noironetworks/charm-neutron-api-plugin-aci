@@ -13,6 +13,10 @@ class AciAimConfigContext(context.OSContextGenerator):
         ctxt['apic_hosts'] = config('aci-apic-hosts')
         ctxt['apic_username'] = config('aci-apic-username')
         ctxt['apic_password'] = config('aci-apic-password')
+        if config('aci-aim-system-id') == '':
+           ctxt['aci_aim_system_id'] = config('aci-apic-system-id')
+        else:
+           ctxt['aci_aim_system_id'] = config('aci-aim-system-id')
 
         return ctxt
 
