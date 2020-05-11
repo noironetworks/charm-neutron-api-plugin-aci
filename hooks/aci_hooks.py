@@ -4,7 +4,8 @@ from collections import OrderedDict
 from copy import deepcopy
 import subprocess
 import sys
-import pdb
+import os
+import json
 
 from aci_utils import (
     ACI_PACKAGES,
@@ -159,7 +160,9 @@ def upgrade_charm():
             break
     log('my-aim-system-id: {} new-aim-sys-id: {}'.format(my_aim_system_id, new_aim_system_id))
     if new_aim_system_id != my_aim_system_id:
-        log("Wont Upgrade aim-system-id will change, manual uograde required. Please set \"aci-aim-system-id: openstack_aid\"")
+        log("Wont upgrade aim-system-id will change, manual upgrade required. "
+             "Please set \"aci-aim-system-id: openstack_aid\""
+             " and repeat with \"juju config\"")
         exit(5)
     aci_install()
     config_changed()
