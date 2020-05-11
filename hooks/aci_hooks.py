@@ -145,6 +145,22 @@ def shared_db_changed():
 
 @hooks.hook('upgrade-charm')    
 def upgrade_charm():
+    if config('aci-aim-system-id') == '':
+       new_aim_system_id = config('aci-apic-system-id')
+    else:
+       new_aim_system_id = config('aci-aim-system-id')
+    
+    my_aim_system_id = ""
+    stream = os.popen('/usr/bin/aimctl -f json manager configuration-get aim_system_id "" aim')
+    myoutput = json.load(stream)
+    for item in myoutput:
+        if item["Property"] == "value":
+            my_aim_system_id = item["Value"]
+            break
+    log('my-aim-system-id: {} new-aim-sys-id: {}'.format(my_aim_system_id, new_aim_system_id))
+    if new_aim_system_id != my_aim_system_id:
+        log("Wont Upgrade aim-system-id will change, manual uograde required. Please set \"aci-aim-system-id: openstack_aid\"")
+        exit(5)
     aci_install()
     config_changed()
 

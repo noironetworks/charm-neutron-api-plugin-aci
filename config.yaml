@@ -23,6 +23,13 @@ options:
     type: string
     default: 'openstack'
     description: "As id string for this openstack instance"
+  aci-aim-system-id:
+    type: string
+    default: ''
+    description: |
+        An id string for this aim instance, an internal variable that should not be set unless
+        specifically required for upgrade from older versions. In all other cases this will be
+        automatcally set to the value of apic-system-id
   aci-apic-entity-profile:
     type: string
     default: 'openstack'
