@@ -6,16 +6,10 @@ import subprocess
 import sys
 from itertools import chain
 import yaml
-import pdb
+import os
 
-ACI_PACKAGES = [
-   'python-apicapi',
-   'group-based-policy',
-   'python-group-based-policy-client',
-   'neutron-opflex-agent',
-   'aci-integration-module',
-   'acitoolkit',
-]
+os.environ["LANG"]="C.UTF-8"
+os.environ["LC_ALL"]="C.UTF-8"
 
 from charmhelpers.core.hookenv import (
     Hooks,
@@ -43,9 +37,26 @@ from charmhelpers.contrib.openstack.utils import (
     make_assess_status_func,
     is_unit_paused_set,
     os_release,
+    CompareOpenStackReleases,
 )
 
 from charmhelpers import fetch
+
+myrelease = os_release('neutron-common')
+if CompareOpenStackReleases(myrelease) > 'queens':
+    ACI_PACKAGES = [
+       'python3-group-based-policy',
+       'python3-group-based-policy-client',
+       'python3-neutron-opflex-agent',
+       'python3-aci-integration-module',
+    ]
+else:
+    ACI_PACKAGES = [
+       'group-based-policy',
+       'python-group-based-policy-client',
+       'neutron-opflex-agent',
+       'aci-integration-module',
+    ]
 
 AIM_CONFIG = '/etc/aim/aim.conf'
 AIM_CTL_CONFIG = '/etc/aim/aimctl.conf'
