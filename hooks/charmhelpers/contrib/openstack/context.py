@@ -261,7 +261,7 @@ class SharedDBContext(OSContextGenerator):
             rids = relation_ids(self.interfaces[0])
 
         rel = (get_os_codename_install_source(config('openstack-origin')) or
-               'icehouse')
+               'train')
         for rid in rids:
             self.related = True
             for unit in related_units(rid):
