@@ -60,7 +60,7 @@ else:
 
 AIM_CONFIG = '/etc/aim/aim.conf'
 AIM_CTL_CONFIG = '/etc/aim/aimctl.conf'
-AIM_SERVICES = ['aim-aid','aim-event-service-rpc', 'aim-event-service-polling', 'neutron-cisco-apic-host-agent']
+AIM_SERVICES = ['aim-aid','aim-event-service-rpc', 'aim-event-service-polling']
 NEUTRON_CONF_DIR = "/etc/neutron"
 NEUTRON_CONF = '%s/neutron.conf' % NEUTRON_CONF_DIR
 TEMPLATES = 'templates/'
