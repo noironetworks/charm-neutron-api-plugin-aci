@@ -70,6 +70,19 @@ def aci_install(relation_id=None):
 
     fetch.apt_install(ACI_PACKAGES, options=opt, fatal=True)
 
+    cmd = ['/bin/systemctl', 'stop', 'neutron-opflex-agent']
+    subprocess.check_call(cmd)
+
+    cmd = ['/bin/systemctl', 'disable', 'neutron-opflex-agent']
+    subprocess.check_call(cmd)
+
+    cmd = ['/bin/systemctl', 'stop', 'neutron-cisco-apic-host-agent']
+    subprocess.check_call(cmd)
+
+    cmd = ['/bin/systemctl', 'disable', 'neutron-cisco-apic-host-agent']
+    subprocess.check_call(cmd)
+
+
 @hooks.hook('update-status')
 def update_status():
     log("Updating status")
