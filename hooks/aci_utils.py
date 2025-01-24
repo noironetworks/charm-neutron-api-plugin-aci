@@ -25,7 +25,8 @@ from charmhelpers.core.hookenv import (
 
 from charmhelpers.core.host import (
     restart_on_change,
-    service_restart
+    service_restart,
+    lsb_release
 )
 
 from charmhelpers.contrib.openstack import context, templating
@@ -80,12 +81,23 @@ BASE_RESOURCE_MAP = OrderedDict([
         'contexts': [aim_context.AciAimCtlConfigContext()],
     }),
 ])
-
+PY3_PACKAGES = ['python3-neutron-fwaas']
 REQUIRED_INTERFACES = {
    'messaging': ['amqp'],
    'database': ['shared-db'],
 }
 
+def determine_packages(source=None, openstack_release=None):
+    # currently all packages match service names
+    dpkg_opts = [
+        '--option', 'Dpkg::Options::=--force-confnew',
+        '--option', 'Dpkg::Options::=--force-confdef',
+    ]
+    ubuntu_rel = lsb_release()['DISTRIB_CODENAME'].lower()
+    if ubuntu_rel != "jammy":
+        fetch.apt_install(PY3_PACKAGES,
+                options=dpkg_opts,
+                fatal=True)
 def register_configs(release=None):
     release = release or os_release('neutron-common')
     configs = templating.OSConfigRenderer(templates_dir=TEMPLATES,
